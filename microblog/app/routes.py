@@ -4,6 +4,7 @@
 
 from app import app
 from flask import render_template
+from app.forms import LoginForm
 
 @app.route("/")
 @app.route("/index")
@@ -18,5 +19,10 @@ def index():
             "body": "The avengers was so cool"
         }]
     return render_template("index.html", title="Home", user=user, posts=posts)
+
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template("login.html", title="Sign in", form=form)
 
 # we want to expand the view function to show a complete HTML page.
