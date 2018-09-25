@@ -9,6 +9,14 @@ from flask import render_template
 @app.route("/index")
 def index():
     user = {"username": "miguel"}
-    return render_template("index.html", title="Home", user=user)
+    posts = [{
+        "author": {"username": "John"},
+        "body": "Beautiful day in portland"
+        },
+        {
+            "author": {"username": "Susan"},
+            "body": "The avengers was so cool"
+        }]
+    return render_template("index.html", title="Home", user=user, posts=posts)
 
 # we want to expand the view function to show a complete HTML page.
