@@ -1,9 +1,12 @@
 from flask import Flask
 from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
-app = Flask(__name__) # __name__ is a predifined python variable and is set to the name of the module it is used
+# __name__ is a predifined python variable and is set to the name of the module it is used
+app = Flask(__name__) 
 app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-from app import routes
-
-# there are two entities named app - the folder/package that is app and the variable defined above
+from app import routes, models
