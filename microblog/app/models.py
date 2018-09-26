@@ -19,3 +19,7 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"<Post: {self.body}"
+
+# we add a post as p = Post(body="my first post", author=u); u is defined as u = User.query.get(1)
+# author is defined in backref in posts in class User.
+# in a post, a user is p.a
