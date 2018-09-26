@@ -64,6 +64,10 @@ def register():
 @app.route("/user/<username>")
 @login_required
 def user(username):
+    """
+    if the client browser requests the url /user/kanishk, the view function will be 
+    called with the argument username set to "kanishk"
+    """
     user = User.query.filter_by(username=username).first_or_404()
     posts = [
         {"author": user, "body": "Test post 1"},
