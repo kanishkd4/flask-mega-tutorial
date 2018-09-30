@@ -12,6 +12,7 @@ class Config(object):
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     ADMINS = ["your-email@example.com"]
+    POSTS_PER_PAGE = 3
 
 # SQLALCHEMY_DATABASE_URI = locaiton of the application's database
 # SQLALCHEMY_TRACK_MODIFICATIONS = to signal the application everytime a change is about
