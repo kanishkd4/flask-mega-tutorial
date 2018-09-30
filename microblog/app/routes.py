@@ -126,3 +126,13 @@ def unfollow(username):
     db.session.commit()
     flash(f"You are not following {username}")
     return redirect(url_for("user", username=username))
+
+@app.route("/explore")
+@login_required
+def explore():
+    """
+    This function uses the same index html template. To use it, we'll add an if
+    condition to the html to only render the form if it is provided in the function
+    """
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    return render_template("index.html", title="Explore", posts=posts)
