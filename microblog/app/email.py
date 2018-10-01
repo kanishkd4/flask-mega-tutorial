@@ -9,7 +9,7 @@ def send_mail(subject, sender, recipients, text_body, html_body):
     msg.html = html_body
     mail.send(msg)
 
-def send_password_reset_mail(user):
+def send_password_reset_email(user):
     token = user.get_reset_password_token()
     send_mail("[Microblog] Reset your password",
               sender = app.config["ADMINS"][0],
